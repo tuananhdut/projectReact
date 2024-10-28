@@ -1,48 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table } from 'antd';
+import axios from 'axios';
 
-const UserTable = () => {
+const UserTable = (props) => {
+    const { listDataUser } = props
+
     const columns = [
         {
-            title: 'Name',
-            dataIndex: 'name',
+            title: 'ID',
+            dataIndex: '_id',
+
         },
         {
-            title: 'Age',
-            dataIndex: 'age',
+            title: 'Full Name',
+            dataIndex: 'fullName',
         },
         {
-            title: 'Address',
-            dataIndex: 'address',
+            title: 'Email',
+            dataIndex: 'email',
+        },
+        {
+            title: 'Phone Number',
+            dataIndex: 'phone',
         },
     ];
-    const data = [
-        {
-            key: '1',
-            name: 'John Brown',
-            age: 32,
-            address: 'New York No. 1 Lake Park',
-        },
-        {
-            key: '2',
-            name: 'Jim Green',
-            age: 42,
-            address: 'London No. 1 Lake Park',
-        },
-        {
-            key: '3',
-            name: 'Joe Black',
-            age: 32,
-            address: 'Sydney No. 1 Lake Park',
-        },
-        {
-            key: '4',
-            name: 'Jim Red',
-            age: 32,
-            address: 'London No. 2 Lake Park',
-        },
-    ];
-    return (<Table columns={columns} dataSource={data} />)
+
+    return (<Table
+        columns={columns}
+        dataSource={listDataUser}
+        rowKey={"_id"}
+    />)
 
 }
 export default UserTable
