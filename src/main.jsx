@@ -5,17 +5,19 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import UserPage from './pages/user.jsx';
+import ErrorPage from './pages/error.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <h1></h1>,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
-        element: <h1></h1>
+        element: <h1></h1>,
       },
       {
         path: "/books",
@@ -23,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/users",
-        element: <h1></h1>,
+        element: <UserPage />,
       }
     ]
   },
